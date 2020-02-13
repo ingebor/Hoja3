@@ -17,7 +17,7 @@ public class main {
             i++;
         }
 
-        System.out.println("esta es la lista generada: "+Arrays.toString(lista));
+        System.out.println("************Esta es la lista generada: "+Arrays.toString(lista));
 
         //******Quitar el comentario del que se desee probar******
         Sorting ob = new Sorting();
@@ -39,6 +39,6 @@ public class main {
         ob.insertionSort(lista);
 
 
-        System.out.println("Lista ordenada: "+Arrays.toString(lista));
+        System.out.println("\n\n************Lista ordenada: "+Arrays.toString(lista));
     }
 }
