@@ -1,9 +1,19 @@
+/**
+ * @author Ingebor Ayleen Rubio Vasquez 19003
+ * @date 12/02/20
+ * Hoja de trabajo 3
+ */
+
 import java.io.*;
 import java.util.*;
 
 public class Sorting {
 
     //Code by Rajat Mishra
+    /**
+     * Selection sort
+     * @param arr
+     */
     public void selectionSort(int arr[]){
         int n = arr.length;
         for(int i =0; i<n-1;i++){
@@ -20,6 +30,13 @@ public class Sorting {
     }
 
     //Code by Rajat Mishra
+    /**
+     * Merge Sort
+     * @param arr
+     * @param l
+     * @param m
+     * @param r
+     */
     void mergeSort(int arr[], int l, int m, int r)
     {
         // Find sizes of two subarrays to be merged
@@ -77,6 +94,12 @@ public class Sorting {
     }
 
     //Code by Rajat Mishra
+    /**
+     * sort
+     * @param arr
+     * @param l
+     * @param r
+     */
     void sort(int arr[], int l, int r){
         if (l < r)
         {
@@ -88,6 +111,13 @@ public class Sorting {
     }
 
     //Code by Rajat Mishra
+    /**
+     * partition
+     * @param arr
+     * @param low
+     * @param high
+     * @return
+     */
     public int partition(int arr[], int low, int high){
         int pivot = arr[high];
         int i = (low-1);
@@ -105,7 +135,14 @@ public class Sorting {
 
         return i+1;
     }
+
     //Code by Rajat Mishra
+    /**
+     * quick sort
+     * @param arr
+     * @param low
+     * @param high
+     */
     public void quickSort(int arr[], int low, int high){
         if (low<high){
             int pi = partition(arr,low,high);
@@ -116,6 +153,12 @@ public class Sorting {
     }
 
     //Code by Devesh Agrawal
+    /**
+     * get max for radix sort
+     * @param arr
+     * @param n
+     * @return
+     */
     static int getMax(int arr[], int n){
         int mx = arr[0];
         for(int i=1;i<n;i++){
@@ -126,6 +169,12 @@ public class Sorting {
         return mx;
     }
 
+    /**
+     * Count sort for radix sort
+     * @param arr
+     * @param n
+     * @param exp
+     */
     //Code by Devesh Agrawal
     static void countSort(int arr[], int n, int exp){
         int output[] = new int[n];
@@ -149,6 +198,11 @@ public class Sorting {
     }
 
     //Code by Devesh Agrawal
+    /**
+     * radix sort
+     * @param arr
+     * @param n
+     */
     static void radixSort(int arr[], int n){
         int m = getMax(arr,n);
         for(int exp=1; m/exp >0; exp *=10){
@@ -157,6 +211,10 @@ public class Sorting {
     }
 
     //Code by Rajat Mishra
+    /**
+     * Insertion sort
+     * @param arr
+     */
     void insertionSort(int arr[]){
         int n = arr.length;
         for (int i = 1; i<n;i++){

@@ -1,3 +1,9 @@
+/**
+ * @author Ingebor Ayleen Rubio Vasquez 19003
+ * @date 12/02/20
+ * Hoja de trabajo 3
+ */
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
