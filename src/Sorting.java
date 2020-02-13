@@ -1,19 +1,8 @@
+import java.io.*;
+import java.util.*;
+
 public class Sorting {
-    /*public static void selectionSort(Comparable[] list){
-       int min;
-       Comparable temp;
-       for(int index = 0; index<list.length-1;index++){
-            min=index;
-            for(int scan = index+1; scan<list.length;scan++){
-                if(list[scan].compareTo(list[min])<0){
-                    min = scan;
-                }
-            }
-            temp = list[min];
-            list[min] = list[index];
-            list[index]=temp;
-       }
-    }*/
+
     //Code by Rajat Mishra
     public void selectionSort(int arr[]){
         int n = arr.length;
@@ -70,6 +59,83 @@ public class Sorting {
             arr[k] = R[j];
             j++;
             k++;
+        }
+    }
+
+    //Code by Rajat Mishra
+    public int partition(int arr[], int low, int high){
+        int pivot = arr[high];
+        int i = (low-1);
+        for(int j=low;j<high;j++){
+            if (arr[j]<pivot){
+                i++;
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+        int temp = arr[i+1];
+        arr[i+1] = arr[high];
+        arr[high] = temp;
+
+        return i+1;
+    }
+    //Code by Rajat Mishra
+    public void quickSort(int arr[], int low, int high){
+        if (low<high){
+            int pi = partition(arr,low,high);
+
+            quickSort(arr,low,pi-1);
+            quickSort(arr,pi+1,high);
+        }
+    }
+
+    static int getMax(int arr[], int n){
+        int mx = arr[0];
+        for(int i=1;i<n;i++){
+            if(arr[i]>mx){
+                mx = arr[i];
+            }
+        }
+        return mx;
+    }
+
+    static void countSort(int arr[], int n, int exp){
+        int output[] = new int[n];
+        int i;
+        int count[] = new int[10];
+        Arrays.fill(count,0);
+
+        for(i=0 : i<n; i++){
+            count[(arr[i]/exp)%10]++;
+        }
+        for(i=1;i<10;i++){
+            count[i] += count[i-1];
+        }
+        for (i = n - 1; i >= 0; i--){
+            output[count[ (arr[i]/exp)%10 ] - 1] = arr[i];
+            count[ (arr[i]/exp)%10 ]--;
+        }
+        for (i = 0; i < n; i++) {
+            arr[i] = output[i];
+        }
+    }
+    static void radixSort(int arr[], int n){
+        int m = getMax(arr,n);
+        for(int exp=1; m/exp >0; exp *=10){
+            countSort(arr,n,exp);
+        }
+    }
+
+    void sort(int arr[]){
+        for (int i = 1; i<n;i++){
+            int key = arr[i];
+            int j = i -1;
+            while(j>= 0 && arr[j] > key){
+                arr[j+1] = arr[j];
+                j = j-1;
+            }
+            arr[j + 1] = key;
         }
     }
 }
